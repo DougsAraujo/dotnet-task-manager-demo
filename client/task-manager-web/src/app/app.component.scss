@@ -1,0 +1,101 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  background: #0f1419;
+  color: #e6edf3;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+.app-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid #30363d;
+  background: #161b22;
+}
+
+.brand {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #58a6ff;
+  text-decoration: none;
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+
+  a {
+    color: #8b949e;
+    text-decoration: none;
+
+    &:hover {
+      color: #c9d1d9;
+    }
+  }
+}
+
+.header-lang {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+  margin-right: 0.25rem;
+}
+
+.header-lang-label {
+  font-size: 0.75rem;
+  color: #8b949e;
+  margin-right: 0.15rem;
+}
+
+.lang-mini {
+  padding: 0.3rem 0.55rem;
+  border-radius: 6px;
+  border: 1px solid #30363d;
+  background: #21262d;
+  color: #8b949e;
+  font: inherit;
+  font-size: 0.75rem;
+  cursor: pointer;
+
+  &.active {
+    border-color: #58a6ff;
+    color: #58a6ff;
+    background: #1c2128;
+  }
+
+  &:hover:not(.active) {
+    color: #c9d1d9;
+  }
+}
+
+.linkish {
+  background: none;
+  border: none;
+  color: #8b949e;
+  cursor: pointer;
+  font: inherit;
+  padding: 0;
+
+  &:hover {
+    color: #f85149;
+  }
+}
+
+.main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1.25rem;
+}
+
+@media (max-width: 520px) {
+  .main {
+    padding: 1rem;
+  }
+}

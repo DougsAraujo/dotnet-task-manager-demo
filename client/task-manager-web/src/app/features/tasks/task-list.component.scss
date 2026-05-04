@@ -1,0 +1,201 @@
+:host {
+  display: block;
+  min-width: 0;
+}
+
+.head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.muted {
+  color: #8b949e;
+}
+
+.error {
+  color: #f85149;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.45rem 0.85rem;
+  border-radius: 8px;
+  border: 1px solid #30363d;
+  background: #21262d;
+  color: #e6edf3;
+  text-decoration: none;
+  font: inherit;
+  cursor: pointer;
+
+  &.primary {
+    background: #238636;
+    border-color: #238636;
+  }
+
+  &.small {
+    padding: 0.4rem 0.7rem;
+    font-size: 0.85rem;
+    white-space: nowrap;
+  }
+
+  &.danger {
+    border-color: #da3633;
+    color: #ff7b72;
+  }
+}
+
+/*
+ * One grid on .sheet + display:contents on .row so every cell shares the same column tracks.
+ * Otherwise max-content on the actions column differs per row (short header vs wide buttons),
+ * which shrinks/expands the 1fr title track and misaligns STATUS/DUE headers vs data.
+ */
+.sheet {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 11rem 13rem max-content;
+  column-gap: 1rem;
+  align-items: center;
+  /* stretch (not start): start shrink-wraps cells so header bg only hugged the label text */
+  justify-items: stretch;
+  border: 1px solid #30363d;
+  border-radius: 10px;
+  overflow-x: clip;
+}
+
+.row {
+  display: contents;
+}
+
+.sheet > .row > .cell {
+  border-bottom: 1px solid #21262d;
+  padding-block: 0.65rem;
+}
+
+.sheet > .row > .cell:first-child {
+  padding-left: 0.85rem;
+}
+
+.sheet > .row > .cell:last-child {
+  padding-right: 0.85rem;
+}
+
+.sheet > .row:last-of-type > .cell {
+  border-bottom: none;
+}
+
+.row--head .cell {
+  background: #161b22;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #8b949e;
+}
+
+.cell--title {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cell--status,
+.cell--due {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: left;
+  min-width: 0;
+}
+
+.cell--actions {
+  white-space: nowrap;
+  text-align: right;
+  min-width: 0;
+}
+
+/* Inline layout avoids grid-item + nested-flex min-width:0 collapsing button labels in Chromium. */
+.cell--actions .btn {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 0.5rem;
+  box-sizing: border-box;
+  color: #e6edf3;
+}
+
+.cell--actions .btn:first-child {
+  margin-left: 0;
+}
+
+.cell--actions .btn.danger {
+  color: #ff7b72;
+}
+
+.action-btns {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .sheet {
+    display: block;
+  }
+
+  .row {
+    display: block;
+    border-bottom: 1px solid #30363d;
+    padding: 0.75rem 0.85rem;
+  }
+
+  .row--head {
+    display: none;
+  }
+
+  .sheet > .row > .cell {
+    border-bottom: none;
+    padding-block: 0;
+    padding-inline: 0;
+  }
+
+  .sheet > .row > .cell:first-child,
+  .sheet > .row > .cell:last-child {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .cell {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 0.35rem 0;
+    border: none;
+  }
+
+  .cell::before {
+    content: attr(data-label);
+    color: #8b949e;
+    font-size: 0.8rem;
+    flex-shrink: 0;
+  }
+
+  .cell--title {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+  }
+
+  .cell--status,
+  .cell--due {
+    max-width: none;
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "app": {
+    "brand": "Gestor de tarefas"
+  },
+  "nav": {
+    "tasks": "Tarefas",
+    "new": "Nova",
+    "signOut": "Sair",
+    "signIn": "Entrar",
+    "register": "Registar"
+  },
+  "login": {
+    "langLabel": "Idioma",
+    "langEn": "English",
+    "langPt": "Português",
+    "title": "Entrar",
+    "demoHint": "Credenciais de demonstração:",
+    "email": "Email",
+    "password": "Palavra-passe",
+    "submit": "Entrar",
+    "createAccount": "Criar conta",
+    "errorSignIn": "Não foi possível iniciar sessão."
+  },
+  "register": {
+    "title": "Registar",
+    "displayName": "Nome a apresentar",
+    "email": "Email",
+    "password": "Palavra-passe (mín. 8 caracteres)",
+    "confirmPassword": "Confirmar palavra-passe",
+    "submit": "Criar conta",
+    "haveAccount": "Já tenho conta",
+    "errorRegister": "Não foi possível criar a conta."
+  },
+  "tasks": {
+    "list": {
+      "title": "Tarefas",
+      "newTask": "Nova tarefa",
+      "loading": "A carregar…",
+      "tryAgain": "Tentar novamente",
+      "empty": "Ainda sem tarefas.",
+      "createFirst": "Criar a primeira",
+      "colTitle": "Título",
+      "colStatus": "Estado",
+      "colDue": "Prazo",
+      "colActions": "Ações",
+      "edit": "Editar",
+      "delete": "Eliminar",
+      "confirmDelete": "Eliminar \"{{title}}\"?",
+      "loadError": "Não foi possível carregar as tarefas. Confirme que está autenticado e que a API está a correr.",
+      "deleteError": "Falha ao eliminar a tarefa.",
+      "statusPending": "Pendente",
+      "statusInProgress": "Em progresso",
+      "statusCompleted": "Concluída"
+    },
+    "editor": {
+      "newTitle": "Nova tarefa",
+      "editTitle": "Editar tarefa",
+      "title": "Título",
+      "description": "Descrição",
+      "status": "Estado",
+      "dueDate": "Prazo (opcional)",
+      "dueDateDate": "Data",
+      "dueTime": "Hora (opcional)",
+      "cancel": "Cancelar",
+      "save": "Guardar",
+      "notFound": "Tarefa não encontrada.",
+      "saveError": "Não foi possível guardar."
+    }
+  },
+  "validation": {
+    "required": "Campo obrigatório.",
+    "email": "Indique um email válido.",
+    "minLength": "Mínimo de {{n}} caracteres.",
+    "maxLength": "Máximo de {{n}} caracteres.",
+    "passwordMismatch": "As palavras-passe não coincidem."
+  },
+  "error": {
+    "unauthorized": "Email ou palavra-passe incorretos.",
+    "conflict": "Este email já está registado.",
+    "network": "Não foi possível ligar ao servidor. Verifique a rede ou o URL da API."
+  }
+}

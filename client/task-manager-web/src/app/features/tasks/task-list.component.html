@@ -1,0 +1,40 @@
+<section>
+  <div class="head">
+    <h1>{{ 'tasks.list.title' | translate }}</h1>
+    <a routerLink="/tasks/new" class="btn primary">{{ 'tasks.list.newTask' | translate }}</a>
+  </div>
+
+  @if (busy()) {
+    <p class="muted">{{ 'tasks.list.loading' | translate }}</p>
+  } @else if (error()) {
+    <p class="error">{{ error() }}</p>
+    <button type="button" class="btn" (click)="reload()">{{ 'tasks.list.tryAgain' | translate }}</button>
+  } @else if (tasks().length === 0) {
+    <p class="muted">
+      {{ 'tasks.list.empty' | translate }}
+      <a routerLink="/tasks/new">{{ 'tasks.list.createFirst' | translate }}</a>
+    </p>
+  } @else {
+    <div class="sheet" role="table" [attr.aria-label]="'tasks.list.title' | translate">
+      <div class="row row--head" role="row">
+        <div class="cell cell--title" role="columnheader">{{ 'tasks.list.colTitle' | translate }}</div>
+        <div class="cell cell--status" role="columnheader">{{ 'tasks.list.colStatus' | translate }}</div>
+        <div class="cell cell--due" role="columnheader">{{ 'tasks.list.colDue' | translate }}</div>
+        <div class="cell cell--actions" role="columnheader">{{ 'tasks.list.colActions' | translate }}</div>
+      </div>
+      @for (task of tasks(); track task.id) {
+        <div class="row" role="row">
+          <div class="cell cell--title" role="cell" [attr.data-label]="'tasks.list.colTitle' | translate">{{ task.title }}</div>
+          <div class="cell cell--status" role="cell" [attr.data-label]="'tasks.list.colStatus' | translate">{{ statusLabel(task.status) }}</div>
+          <div class="cell cell--due" role="cell" [attr.data-label]="'tasks.list.colDue' | translate">{{ task.dueDate ? (task.dueDate | date: locale.dueDateColumnFormat() : '' : locale.dateLocale()) : '—' }}</div>
+          <div class="cell cell--actions" role="cell" [attr.data-label]="'tasks.list.colActions' | translate">
+            <span class="action-btns">
+              <a [routerLink]="['/tasks', task.id, 'edit']" class="btn small">{{ 'tasks.list.edit' | translate }}</a>
+              <button type="button" class="btn small danger" (click)="remove(task)">{{ 'tasks.list.delete' | translate }}</button>
+            </span>
+          </div>
+        </div>
+      }
+    </div>
+  }
+</section>

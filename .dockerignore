@@ -1,0 +1,13 @@
+**/.git
+**/.idea
+**/.vs
+**/bin
+**/obj
+**/node_modules
+**/.angular
+**/dist
+**/out-tsc
+**/*.db
+**/*.user
+**/npm-debug.log
+**/Thumbs.db

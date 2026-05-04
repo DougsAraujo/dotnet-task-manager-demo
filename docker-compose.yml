@@ -1,0 +1,36 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.api
+    environment:
+      ASPNETCORE_URLS: http://+:8080
+      ASPNETCORE_ENVIRONMENT: Production
+      Swagger__Enabled: "true"
+      Database__ConnectionString: Data Source=/data/taskmanager.db
+      Jwt__Issuer: TaskManager
+      Jwt__Audience: TaskManagerClients
+      Jwt__SigningKey: DockerDemoSecretKey_MustBe32Chars_Min!!
+      Jwt__ExpiryMinutes: "480"
+      DemoUser__Email: demo@taskmanager.local
+      DemoUser__Password: Demo123!
+      DemoUser__DisplayName: Demo User
+      Cors__Origins__0: http://localhost:8080
+    volumes:
+      - sqlite-data:/data
+    expose:
+      - "8080"
+    ports:
+      - "5011:8080"
+
+  web:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.web
+    ports:
+      - "8080:80"
+    depends_on:
+      - api
+
+volumes:
+  sqlite-data:

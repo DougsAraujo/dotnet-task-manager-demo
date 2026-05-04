@@ -1,0 +1,40 @@
+/* You can add global styles to this file, and also import other style files */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Browser defaults: body margin + white background show as a light frame around the app. */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  background-color: #0f1419;
+  color: #e6edf3;
+}
+
+/*
+ * Native <input type="date|time"> picker icons in Chromium: the ::-webkit-calendar-picker-indicator
+ * pseudo-element may not receive Angular emulated encapsulation attributes; global rules fix contrast.
+ * brightness(0) invert(1) forces a light glyph regardless of the browser default icon color.
+ */
+app-task-editor input[type='date']::-webkit-calendar-picker-indicator,
+app-task-editor input[type='time']::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  width: 1.35rem;
+  height: 1.35rem;
+  padding: 0.15rem;
+  margin-left: 0.15rem;
+  opacity: 0.95;
+  filter: brightness(0) invert(1);
+}
+
+app-task-editor input[type='date']::-webkit-calendar-picker-indicator:hover,
+app-task-editor input[type='time']::-webkit-calendar-picker-indicator:hover {
+  opacity: 1;
+  filter: brightness(0) invert(1) drop-shadow(0 0 2px rgba(255, 255, 255, 0.45));
+}
+

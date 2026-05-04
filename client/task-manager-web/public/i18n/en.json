@@ -1,0 +1,82 @@
+{
+  "app": {
+    "brand": "Task Manager"
+  },
+  "nav": {
+    "tasks": "Tasks",
+    "new": "New",
+    "signOut": "Sign out",
+    "signIn": "Sign in",
+    "register": "Register"
+  },
+  "login": {
+    "langLabel": "Language",
+    "langEn": "English",
+    "langPt": "Portuguese",
+    "title": "Sign in",
+    "demoHint": "Demo credentials:",
+    "email": "Email",
+    "password": "Password",
+    "submit": "Sign in",
+    "createAccount": "Create an account",
+    "errorSignIn": "Could not sign in."
+  },
+  "register": {
+    "title": "Register",
+    "displayName": "Display name",
+    "email": "Email",
+    "password": "Password (min. 8 characters)",
+    "confirmPassword": "Confirm password",
+    "submit": "Create account",
+    "haveAccount": "Already have an account?",
+    "errorRegister": "Could not create account."
+  },
+  "tasks": {
+    "list": {
+      "title": "Tasks",
+      "newTask": "New task",
+      "loading": "Loading…",
+      "tryAgain": "Try again",
+      "empty": "No tasks yet.",
+      "createFirst": "Create your first one",
+      "colTitle": "Title",
+      "colStatus": "Status",
+      "colDue": "Due",
+      "colActions": "Actions",
+      "edit": "Edit",
+      "delete": "Delete",
+      "confirmDelete": "Delete \"{{title}}\"?",
+      "loadError": "Could not load tasks. Make sure you are signed in and the API is running.",
+      "deleteError": "Failed to delete task.",
+      "statusPending": "Pending",
+      "statusInProgress": "In progress",
+      "statusCompleted": "Completed"
+    },
+    "editor": {
+      "newTitle": "New task",
+      "editTitle": "Edit task",
+      "title": "Title",
+      "description": "Description",
+      "status": "Status",
+      "dueDate": "Due date (optional)",
+      "dueDateDate": "Date",
+      "dueTime": "Time (optional)",
+      "cancel": "Cancel",
+      "save": "Save",
+      "notFound": "Task not found.",
+      "saveError": "Could not save."
+    }
+  },
+  "validation": {
+    "required": "This field is required.",
+    "email": "Enter a valid email address.",
+    "minLength": "At least {{n}} characters required.",
+    "maxLength": "At most {{n}} characters allowed.",
+    "passwordMismatch": "Passwords do not match."
+  },
+  "error": {
+    "unauthorized": "Incorrect email or password.",
+    "conflict": "This email is already registered.",
+    "network": "Could not reach the server. Check your network or the API URL."
+  }
+}

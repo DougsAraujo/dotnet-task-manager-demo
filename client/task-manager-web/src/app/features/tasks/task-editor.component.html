@@ -1,0 +1,58 @@
+<section class="card">
+  <h1>{{ (taskId ? 'tasks.editor.editTitle' : 'tasks.editor.newTitle') | translate }}</h1>
+  @if (loadError) {
+    <p class="error banner" role="alert">{{ loadError }}</p>
+  }
+  <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+    <label [class.has-error]="showField('title')">
+      <span>{{ 'tasks.editor.title' | translate }}</span>
+      <input type="text" formControlName="title" [attr.aria-invalid]="showField('title')" />
+      @if (showField('title')) {
+        <span class="field-errors" role="alert">
+          @for (m of fieldMsgs('title'); track m) {
+            <span class="field-error">{{ m }}</span>
+          }
+        </span>
+      }
+    </label>
+    <label [class.has-error]="showField('description')">
+      <span>{{ 'tasks.editor.description' | translate }}</span>
+      <textarea rows="4" formControlName="description" [attr.aria-invalid]="showField('description')"></textarea>
+      @if (showField('description')) {
+        <span class="field-errors" role="alert">
+          @for (m of fieldMsgs('description'); track m) {
+            <span class="field-error">{{ m }}</span>
+          }
+        </span>
+      }
+    </label>
+    <label>
+      <span>{{ 'tasks.editor.status' | translate }}</span>
+      <select formControlName="status">
+        @for (s of statusOptions; track s.value) {
+          <option [value]="s.value">{{ s.labelKey | translate }}</option>
+        }
+      </select>
+    </label>
+    <fieldset class="due-fieldset">
+      <legend>{{ 'tasks.editor.dueDate' | translate }}</legend>
+      <div class="due-inputs">
+        <label>
+          <span>{{ 'tasks.editor.dueDateDate' | translate }}</span>
+          <input type="date" formControlName="dueDateDate" />
+        </label>
+        <label>
+          <span>{{ 'tasks.editor.dueTime' | translate }}</span>
+          <input type="time" formControlName="dueDateTime" step="60" />
+        </label>
+      </div>
+    </fieldset>
+    @if (apiError) {
+      <p class="error banner" role="alert">{{ apiError }}</p>
+    }
+    <div class="actions">
+      <button type="button" class="btn" (click)="cancel()">{{ 'tasks.editor.cancel' | translate }}</button>
+      <button type="submit" class="btn primary" [disabled]="busy">{{ 'tasks.editor.save' | translate }}</button>
+    </div>
+  </form>
+</section>

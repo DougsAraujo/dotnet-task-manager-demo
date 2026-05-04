@@ -1,0 +1,10 @@
+@use '../login/login.component.scss';
+
+textarea {
+  padding: 0.55rem 0.65rem;
+  border-radius: 8px;
+  border: 1px solid #30363d;
+  background: #0d1117;
+  color: #e6edf3;
+  font: inherit;
+}

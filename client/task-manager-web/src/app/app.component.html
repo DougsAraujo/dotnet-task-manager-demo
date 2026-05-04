@@ -1,0 +1,35 @@
+<header class="app-header">
+  <a routerLink="/" class="brand">{{ 'app.brand' | translate }}</a>
+  <nav class="nav">
+    @if (auth.isLoggedIn()) {
+      <a routerLink="/tasks">{{ 'nav.tasks' | translate }}</a>
+      <a routerLink="/tasks/new">{{ 'nav.new' | translate }}</a>
+      <button type="button" class="linkish" (click)="auth.logout()">{{ 'nav.signOut' | translate }}</button>
+    } @else {
+      <div class="header-lang" role="group" [attr.aria-label]="'login.langLabel' | translate">
+        <span class="header-lang-label">{{ 'login.langLabel' | translate }}:</span>
+        <button
+          type="button"
+          class="lang-mini"
+          [class.active]="locale.lang() === 'en'"
+          (click)="setLang('en')"
+        >
+          {{ 'login.langEn' | translate }}
+        </button>
+        <button
+          type="button"
+          class="lang-mini"
+          [class.active]="locale.lang() === 'pt'"
+          (click)="setLang('pt')"
+        >
+          {{ 'login.langPt' | translate }}
+        </button>
+      </div>
+      <a routerLink="/login">{{ 'nav.signIn' | translate }}</a>
+      <a routerLink="/register">{{ 'nav.register' | translate }}</a>
+    }
+  </nav>
+</header>
+<main class="main">
+  <router-outlet />
+</main>

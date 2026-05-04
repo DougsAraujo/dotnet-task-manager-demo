@@ -1,0 +1,28 @@
+# Build outputs
+**/bin/
+**/obj/
+**/dist/
+**/out-tsc/
+
+# SQLite local DB
+taskmanager.db
+*.db
+
+# IDE
+.idea/
+.vs/
+*.user
+
+# Node
+node_modules/
+npm-debug.log*
+
+# Angular
+.angular/
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Test coverage (coverlet)
+TestResults/

@@ -1,0 +1,17 @@
+# syntax=docker/dockerfile:1
+FROM node:20-alpine AS build
+WORKDIR /app
+
+ARG NPM_REGISTRY=https://registry.npmjs.org/
+ENV npm_config_registry=${NPM_REGISTRY}
+
+COPY client/task-manager-web/package.json client/task-manager-web/package-lock.json ./
+RUN npm ci
+
+COPY client/task-manager-web/ ./
+RUN npx ng build --configuration=docker
+
+FROM nginx:1.27-alpine
+COPY docker/nginx.conf /etc/nginx/conf.d/default.conf
+COPY --from=build /app/dist/task-manager-web/browser /usr/share/nginx/html
+EXPOSE 80

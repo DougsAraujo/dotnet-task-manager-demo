@@ -1,0 +1,96 @@
+<section class="card">
+  <div class="lang-row" role="group" [attr.aria-label]="'login.langLabel' | translate">
+    <span class="lang-label">{{ 'login.langLabel' | translate }}</span>
+    <div class="lang-toggle">
+      <button
+        type="button"
+        class="lang-btn"
+        [class.active]="locale.lang() === 'en'"
+        (click)="setLanguage('en')"
+      >
+        {{ 'login.langEn' | translate }}
+      </button>
+      <button
+        type="button"
+        class="lang-btn"
+        [class.active]="locale.lang() === 'pt'"
+        (click)="setLanguage('pt')"
+      >
+        {{ 'login.langPt' | translate }}
+      </button>
+    </div>
+  </div>
+
+  <h1>{{ 'register.title' | translate }}</h1>
+  <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+    <label [class.has-error]="showField('displayName')">
+      <span>{{ 'register.displayName' | translate }}</span>
+      <input
+        type="text"
+        formControlName="displayName"
+        autocomplete="name"
+        [attr.aria-invalid]="showField('displayName')"
+      />
+      @if (showField('displayName')) {
+        <span class="field-errors" role="alert">
+          @for (m of fieldMsgs('displayName'); track m) {
+            <span class="field-error">{{ m }}</span>
+          }
+        </span>
+      }
+    </label>
+    <label [class.has-error]="showField('email')">
+      <span>{{ 'register.email' | translate }}</span>
+      <input
+        type="email"
+        formControlName="email"
+        autocomplete="username"
+        [attr.aria-invalid]="showField('email')"
+      />
+      @if (showField('email')) {
+        <span class="field-errors" role="alert">
+          @for (m of fieldMsgs('email'); track m) {
+            <span class="field-error">{{ m }}</span>
+          }
+        </span>
+      }
+    </label>
+    <label [class.has-error]="showField('password')">
+      <span>{{ 'register.password' | translate }}</span>
+      <input
+        type="password"
+        formControlName="password"
+        autocomplete="new-password"
+        [attr.aria-invalid]="showField('password')"
+      />
+      @if (showField('password')) {
+        <span class="field-errors" role="alert">
+          @for (m of fieldMsgs('password'); track m) {
+            <span class="field-error">{{ m }}</span>
+          }
+        </span>
+      }
+    </label>
+    <label [class.has-error]="showField('confirmPassword')">
+      <span>{{ 'register.confirmPassword' | translate }}</span>
+      <input
+        type="password"
+        formControlName="confirmPassword"
+        autocomplete="new-password"
+        [attr.aria-invalid]="showField('confirmPassword')"
+      />
+      @if (showField('confirmPassword')) {
+        <span class="field-errors" role="alert">
+          @for (m of fieldMsgs('confirmPassword'); track m) {
+            <span class="field-error">{{ m }}</span>
+          }
+        </span>
+      }
+    </label>
+    @if (apiError) {
+      <p class="error banner" role="alert">{{ apiError }}</p>
+    }
+    <button type="submit" [disabled]="busy">{{ 'register.submit' | translate }}</button>
+  </form>
+  <p class="footer"><a routerLink="/login">{{ 'register.haveAccount' | translate }}</a></p>
+</section>
