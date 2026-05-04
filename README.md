@@ -14,14 +14,6 @@ The exercise asks for a simple web application with a **.NET** API and data laye
 
 ---
 
-## Informal user story
-
-> As an **authenticated user**, I want to **manage my personal tasks** (create, read, update, delete) with **title**, **description**, **status**, and **optional due date**, so I can stay organized and demonstrate a clear, end-to-end full-stack flow in an interview.
-
-*(You would expand this in a live presentation: actors, constraints, and acceptance notes.)*
-
----
-
 ## What is implemented (quick checklist)
 
 | Area | Implementation |
