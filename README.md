@@ -1,4 +1,4 @@
-# Task Manager — .NET Technical Interview Exercise
+# Task Manager
 
 Full-stack **task management** sample: **ASP.NET Core 8 Web API** (Clean Architecture, **ADO.NET** + SQLite, **JWT** authentication) and an **Angular 19** single-page application.
 
