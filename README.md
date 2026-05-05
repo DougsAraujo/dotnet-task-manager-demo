@@ -163,14 +163,6 @@ All required narrative — **prompt**, **representative sample / what was reject
 
 **[`docs/genai-prompt.md`](docs/genai-prompt.md)**
 
----
-
-## Presentation & code review (for the panel)
-
-In a live session you would typically cover: the **user story**, **why Web API + Angular**, **layer boundaries**, **security** (hashed passwords, JWT, tasks scoped by `UserId` from the token), **how tests de-risk regressions**, and a **short demo** (register/login, CRUD, optional Docker). This README is the **onboarding path** for anyone opening the repo before or after that call.
-
----
-
 ## License
 
 Sample code for **interview / evaluation purposes** only.
